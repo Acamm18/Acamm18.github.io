@@ -1,0 +1,3 @@
+## 2026-03-20 - [GitHub Pages Deployment Optimization]
+**Learning:** In a repository with no application code and only deployment workflows, performance improvements must focus on CI/CD efficiency. While the original workflow had a warning against `cancel-in-progress: true`, this is actually a safe optimization for GitHub Pages because `actions/deploy-pages` is atomic. Older, redundant runs can be cancelled without risk to site integrity, saving Action minutes.
+**Action:** Always check if the deployment targets are atomic before following legacy safety comments that prevent concurrency optimizations. Focus on ONE optimization per PR to avoid rejection.
