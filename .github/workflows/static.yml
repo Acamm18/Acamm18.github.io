@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # BOLT OPTIMIZATION: Skip deployment for journal-only updates to reduce CI usage.
+    # Estimated impact: Reduces redundant Action runs by ~20% for active journal logging.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
