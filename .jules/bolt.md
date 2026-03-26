@@ -1,0 +1,3 @@
+## 2026-03-26 - Safety of cancel-in-progress for static site deployments
+**Learning:** For GitHub Pages and other static site hosting providers that utilize atomic deployments (e.g., via actions/deploy-pages), `cancel-in-progress: true` is a safe and effective performance optimization. Since only the most recent state of the repository matters for the site's content, canceling an in-flight deployment in favor of a newer one reduces redundant CI/CD runs and resource consumption without risking site inconsistency.
+**Action:** Always enable `cancel-in-progress: true` in deployment workflows for static sites when using atomic deployment mechanisms, and include a justificatory comment to prevent future regressions.
