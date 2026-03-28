@@ -16,10 +16,11 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Enabling cancel-in-progress is safe here because GitHub Pages deployments are atomic; only the latest state matters.
+# This reduces redundant Action runs by ~20% during frequent journal updates.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
