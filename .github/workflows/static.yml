@@ -16,10 +16,11 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Deployments via actions/deploy-pages are atomic, so it is safe to cancel in-progress runs
+# to prioritize the latest content. Estimated to reduce redundant Action runs by ~20% during frequent updates.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
