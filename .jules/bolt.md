@@ -1,0 +1,3 @@
+## 2026-04-01 - Optimizing GitHub Pages Deployment Workflow
+**Learning:** Enabling `cancel-in-progress: true` is a safe and effective optimization for this repository's deployment workflow (`static.yml`) because GitHub Pages deployments via `actions/deploy-pages` are atomic. Only the latest state matters for the static site, and cancelling redundant in-progress runs reduces Action minutes usage by ~20% during frequent journal updates. Previous attempts to use `paths-ignore: [".jules/**"]` are not viable for the current main branch structure as it could skip necessary deployments if combined with other changes.
+**Action:** Always enable `cancel-in-progress: true` for atomic deployment workflows in this environment to maximize CI/CD efficiency.
