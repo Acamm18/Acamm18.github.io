@@ -1,0 +1,3 @@
+## 2026-04-04 - Overriding Explicit CI/CD Constraints
+**Learning:** Enabling `cancel-in-progress: true` in GitHub Pages workflows is a standard CI/CD optimization that saves runner resources. However, when the existing configuration explicitly warns against it (e.g., `# However, do NOT cancel in-progress runs...`), it indicates a codebase-specific operational requirement that should not be overridden without deeper investigation into the build pipeline's atomic nature or side effects.
+**Action:** Always respect explicit "DO NOT" warnings in configuration files and seek to optimize application-level performance (frontend/backend) before defaulting to CI/CD runner efficiency.
