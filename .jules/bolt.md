@@ -1,0 +1,3 @@
+## 2026-04-25 - Prefer `paths-ignore` over `cancel-in-progress` for production deployments
+**Learning:** In production-sensitive workflows (like GitHub Pages deployment), developers may explicitly warn against `cancel-in-progress: true` to ensure all pushes are fully deployed. In such cases, `paths-ignore` is a superior optimization lever as it prevents redundant CI/CD runs at the source without risking incomplete deployments.
+**Action:** Always check for inline developer warnings in workflow files before applying concurrency optimizations; use `paths-ignore` to exclude non-production assets (like journals or docs) from triggering expensive CI/CD processes.
