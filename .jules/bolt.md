@@ -1,0 +1,3 @@
+## 2026-04-27 - Optimizing GitHub Pages Deployments with Paths-Ignore
+**Learning:** In repositories primarily used for tracking agent journals or containing static content, frequent updates to non-production files (like `.jules/**`) can trigger redundant and resource-intensive CI/CD deployment runs. Since GitHub Pages deployments often have explicit warnings against using `cancel-in-progress: true` to ensure production integrity, the most effective lever for CI/CD efficiency is to explicitly ignore these non-production paths in the workflow trigger.
+**Action:** Always check for non-production directories (like `.jules/`) and ensure they are added to `paths-ignore` in the primary deployment workflow to prevent unnecessary resource consumption.
