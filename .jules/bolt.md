@@ -1,0 +1,3 @@
+## 2026-05-04 - CI/CD Optimization via paths-ignore
+**Learning:** In repositories consisting primarily of CI/CD configurations and agent journals without application source code, the most effective performance lever is optimizing the deployment pipeline. Using `paths-ignore` for the `.jules/` directory prevents redundant GitHub Pages deployments that are triggered by agent journal updates, saving runner resources and reducing queue times.
+**Action:** Always check for high-frequency, non-production directory updates (like agent journals) and exclude them from deployment triggers using `paths-ignore`.
