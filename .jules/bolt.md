@@ -1,0 +1,3 @@
+## 2026-05-14 - Optimizing CI/CD for Journal-Only Updates
+**Learning:** In a repository that primarily serves as a deployment target for static content and agent journals, CI/CD resources can be wasted by triggering deployments for changes that don't affect the site's content (like journal entries in `.jules/`). While `cancel-in-progress: true` is a common optimization, it should be avoided if explicit developer comments warn against it for production integrity.
+**Action:** Use `paths-ignore` in GitHub Actions workflows to exclude non-production directories (like `.jules/**`) from trigger patterns, ensuring that runner resources are only consumed for relevant updates.
