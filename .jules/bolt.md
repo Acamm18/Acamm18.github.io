@@ -1,0 +1,3 @@
+## 2026-06-15 - CI/CD Optimization in Journal-Only Repositories
+**Learning:** In repositories like this one, which primarily host agent journals and lack application source code, the most significant performance lever is CI/CD pipeline efficiency. Preventing redundant deployments when only non-production assets (like '.jules/**') are updated saves substantial runner resources and reduces noise.
+**Action:** Always check for 'paths-ignore' or equivalent filters in deployment workflows when the repository structure allows for clear separation between production assets and internal metadata/journals.
