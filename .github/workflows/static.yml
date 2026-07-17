@@ -5,6 +5,11 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Do not trigger deployments for changes under .jules/
+    # This prevents redundant runner execution on agent journal updates,
+    # saving environment execution time and platform resources.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
