@@ -1,0 +1,3 @@
+## 2026-07-18 - CI/CD Trigger Optimization for Journal-Only Repositories
+**Learning:** In repositories with no static assets or code, where changes are purely metadata/journals, any workflow trigger that is not restricted with `paths-ignore` for internal logs results in redundant workflow executions and waste of GitHub runner resources. Restricting the main deployment workflow with `paths-ignore: [".jules/**"]` is the most effective optimization lever.
+**Action:** Always check if CI/CD workflows are triggered by internal journal directories, and use `paths-ignore: [".jules/**"]` to avoid triggering redundant deployments.
