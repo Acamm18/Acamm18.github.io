@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Performance Optimization: Prevent triggering GitHub Pages build/deploy when agent journal updates.
+    # Excluding .jules/** avoids wasting CI minutes and unnecessary site deployments for purely internal tracking.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
