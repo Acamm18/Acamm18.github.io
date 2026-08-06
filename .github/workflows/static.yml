@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Exclude the agent's internal journal directory from triggering GitHub Actions deployments.
+    # This prevents redundant static content deployment runs when only internal documentation is updated.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
