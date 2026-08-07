@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Performance Optimization: Avoid triggering deployment runs when only internal
+    # agent journals (.jules/**) are updated. This saves GitHub Action runner time and resources.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
