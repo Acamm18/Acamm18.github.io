@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Optimization: Ignore pushes that only modify Bolt/Jules agent logs or metadata.
+    # Since these are internal journal records, triggering a live deployment for them is redundant.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
