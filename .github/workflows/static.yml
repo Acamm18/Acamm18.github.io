@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Prevent workflow execution when only agent journal files in .jules/ are modified.
+    # This avoids redundant site deployments and saves GitHub Actions runner resources.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
