@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Exclude agent internal journal/documentation directory from triggering site deployments.
+    # Prevents unnecessary build/deploy workflow runs, saving runner minutes and resources.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
