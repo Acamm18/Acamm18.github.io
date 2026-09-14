@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Performance Optimization: Ignore agent journal/internal updates in .jules/
+    # to avoid triggering redundant site deployments and save runner execution time.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
