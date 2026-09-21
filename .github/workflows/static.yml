@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Optimization: Prevent redundant GitHub Actions workflow runs and site rebuilds
+    # when internal agent journal files in .jules/ are updated, saving CI runner time and energy.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
