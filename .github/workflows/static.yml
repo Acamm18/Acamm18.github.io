@@ -5,6 +5,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Optimization: Ignore updates to agent journal files to avoid triggering unnecessary page deployments and save runner minutes.
+    paths-ignore: [".jules/**"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
