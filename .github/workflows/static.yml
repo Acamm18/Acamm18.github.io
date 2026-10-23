@@ -5,6 +5,9 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Ignore agent journal directory updates to prevent unnecessary site deployments and conserve CI/CD runner resources
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
