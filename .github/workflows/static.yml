@@ -2,9 +2,12 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the default branch, excluding internal agent documentation
   push:
     branches: ["main"]
+    # Prevent internal agent journal updates from triggering unnecessary deployments and wasting CI/CD runner resources
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
