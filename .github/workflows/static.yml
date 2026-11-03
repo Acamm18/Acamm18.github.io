@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+    # Bolt optimization: Prevent redundant GitHub Actions runs when modifying agent journals or internal docs.
+    # Eliminates wasted CI/CD runner execution time and reduces deployment queue contention.
+    paths-ignore:
+      - ".jules/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
