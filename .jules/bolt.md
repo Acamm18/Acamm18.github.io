@@ -1,0 +1,3 @@
+## 2026-11-04 - CI/CD Pipeline Optimization for Pure Config Repositories
+**Learning:** In repositories containing only CI/CD deployment workflows and agent journals (without application source code), commits modifying internal agent journals unnecessarily trigger full static site deployments on GitHub Pages. Setting 'paths-ignore' for non-production directories like '.jules/**' eliminates these redundant builds and conserves runner queue time and minutes.
+**Action:** When working in configuration or static deployment repositories, check whether internal tracking or documentation directories can be safely excluded from deployment triggers via 'paths-ignore'.
